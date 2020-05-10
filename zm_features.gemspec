@@ -5,7 +5,7 @@ require "zm_features/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "zm_features"
-  spec.version       = ZmFeatures::VERSION
+  spec.version       = ZMFeatures::VERSION
   spec.authors       = ["'Amal Abdu'"]
   spec.email         = ["'abduamal@ymail.com'"]
 

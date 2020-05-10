@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 
-require_relative '../environment'
+require_relative '../lib/environment'
 
-app = ZmFeatures.new
-
-app.run
+app = ZMFeatures::CLI.new.greet
