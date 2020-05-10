@@ -2,4 +2,6 @@
 
 require_relative '../lib/environment'
 
-app = ZMFeatures::CLI.new.greet
+app = ZMFeatures::CLI.new
+
+app.greet

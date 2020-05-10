@@ -1,6 +1,6 @@
 #environment file
 require_relative "./zm_features/version"
-require_relative "./cli_class"
+require_relative "./zm_features/cli_class"
 # require 'bundler/setup'
 # Bundler.require
 # # require 'open-uri'
@@ -8,7 +8,7 @@ require_relative "./cli_class"
 #
 # require_all 'lib'
 
-module ZmFeatures
+module ZMFeatures
   class Error < StandardError; end
   # Your code goes here...
 end
