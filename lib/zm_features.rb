@@ -1,3 +1,4 @@
+#environment file
 require "zm_features/version"
 
 module ZmFeatures
