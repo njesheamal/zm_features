@@ -1,6 +1,6 @@
 #Handles the logic of the app, the methods are all the things that go into the console
 
-class ZMFeaturesCLI
+class ZMFeatures::CLI
 
   attr_accessor :username
 
