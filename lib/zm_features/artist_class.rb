@@ -25,7 +25,8 @@ class Feature
   end
 
   def self.print_all_features
-
+    puts ""
+    puts ""
     puts "      Now Featured at the Zeitz MOCAA:      "
     self.all.each do |artist|
       puts "-------------------------------------------"
