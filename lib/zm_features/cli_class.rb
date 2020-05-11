@@ -43,7 +43,7 @@ class ZMFeatures::CLI
     puts ""
     puts ""
     puts ""
-    puts "Displayed above is the list of artist featured at the Zeitz MOCAA!"
+    puts "Displayed above is the list of artists featured at the Zeitz MOCAA!".each_char {|c| putc c ; sleep 0.07; $stdout.flush }
     puts ""
     puts ""
     puts "Would you like to learn more about a specific artist being featured? Enter Y or N"
@@ -59,12 +59,6 @@ class ZMFeatures::CLI
       puts ""
       puts ""
       puts ""
-
-      puts "Ok, #{get_artist_name.upcase} is a great choice!"
-
-      puts ""
-      puts ""
-
       puts "Here is some trivia info about 'em! :"
     elsif input == "n"
       puts ""
@@ -88,14 +82,14 @@ class ZMFeatures::CLI
     puts "Who would you like to learn more about?"
 
     input = gets.strip.downcase
-    return input
+    puts "Ok, #{input.upcase} is a great choice!".each_char {|c| putc c ; sleep 0.07; $stdout.flush }
   end
 
   def get_artist_info
 
   end
 
-  
+
   def run
     system("clear")
     greet
