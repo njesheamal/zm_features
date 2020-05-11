@@ -7,7 +7,7 @@ require_relative "./zm_features/version"
 require_relative "./zm_features/cli_class"
 require_relative "./zm_features/scraper_class"
 require_relative "./zm_features/artist_class"
-# require_relative "./zm_features/artist_class"
+require_relative "./zm_features/info_class"
 require 'bundler/setup'
 Bundler.require
 

@@ -29,7 +29,10 @@ class ZMFeaturesScraper
     #now, locate where the actual info I need is:
     artist_url = results.css("a").map { |link| link["href"]}
 
-    artist_url.uniq
+    artist_url.uniq.each do |info|
+      trivia_blurb = info.css('h1.border-strip p').text
+      Info.new(artist, blurb, info_source)
+    end
   end
 
 end
