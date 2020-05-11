@@ -16,7 +16,7 @@ class ZMFeaturesScraper
       # artist = Artist.create(name)
       # is it sufficient to say that the name belongs to the artist?
       country_of_origin = artist.css('p').text
-      Features.new(name, country_of_origin)
+      Feature.new(name, country_of_origin)
       #if an artist class and exhibitions class is added, new_features = Features.new(name, country_of_origin, exhibitions)
     end
   end

@@ -17,12 +17,16 @@ class ZMFeatures::CLI
   def get_name
     name = gets.chomp
     self.username = name
+    puts ""
+    puts ""
+    puts ""
+    puts ""
     puts "Hi, #{self.username}."
-    system("clear")
+    # system("clear")
   end
 
   def begin_to_scrape
-      "The scraping process will commence shortly. Your patience is appreciated.".each_char {|c| putc c ; sleep 0.07; $stdout.flush }
+    "The scraping process will commence shortly. Your patience is appreciated.".each_char {|c| putc c ; sleep 0.07; $stdout.flush }
     ZMFeaturesScraper.scrape_and_make
     puts "Process Complete!"
   end
@@ -44,6 +48,6 @@ class ZMFeatures::CLI
     greet
     get_name
     begin_to_scrape
-    Features.print_all_features
+    Feature.print_all_features
   end
 end

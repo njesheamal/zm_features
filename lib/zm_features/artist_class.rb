@@ -12,7 +12,7 @@ class Feature
 
   @@all = []
 
-  def initialize(name, country_of_origin, info_link)
+  def initialize(name, country_of_origin, info_link=nil)
     @name = name
     @country_of_origin = country_of_origin
     # @art_piece
@@ -25,9 +25,9 @@ class Feature
   end
 
   def self.print_all_features
-    Features.all.each do |artist|
-      puts "      Now Featured at the Zeitz MOCAA:      "
-      puts ""
+
+    puts "      Now Featured at the Zeitz MOCAA:      "
+    self.all.each do |artist|
       puts "-------------------------------------------"
       puts artist.name
       puts "From " + artist.country_of_origin
