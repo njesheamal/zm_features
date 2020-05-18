@@ -19,8 +19,7 @@ Or install it yourself as:
     $ gem install zm_features
 
 ## Usage
-
-TODO: Write usage instructions here
+This app will be used to see a list of artist and art featured at the Zeitz MOCAA. Each user will be asked for their name and will be given the option of choosing an artist.
 
 ## Development
 
