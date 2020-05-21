@@ -55,19 +55,6 @@ class ZMFeatures::CLI
       puts ""
       puts "Great!"
       get_artist_name
-
-      puts ""
-      puts ""
-      puts ""
-      puts "Soon, I'll be able to show you that."
-      puts ""
-      puts "Check back for updates!"
-      puts ""
-      puts "Bye for now!"
-      # puts "Here is some trivia info about 'em! :"
-      puts ""
-      puts ""
-      # ZMFeaturesScraper.scrape_a_feature
     elsif input == "n"
       puts ""
       puts "Ok, thanks for stopping by!"
@@ -77,13 +64,6 @@ class ZMFeatures::CLI
       puts "Please try again"
       prompt_to_learn_more
     end
-    #Then, based on what they choose, one of two things could happen
-    # 1. if yes - i direct them to input the name of the artist from the list
-    # *puts "Great!"
-    # *puts "Here is some trivia info:"
-    # *display the second level scrape
-    #    -find a way to work around the "art by..." issue
-    # 2. if no, - thank them for stopping by
   end
 
   def get_artist_name
@@ -91,10 +71,23 @@ class ZMFeatures::CLI
 
     input = gets.strip.downcase
     puts "Ok, #{input.upcase} is a great choice!".each_char {|c| putc c ; sleep 0.07; $stdout.flush }
-  end
+    
+    puts "Here is some trivia info about 'em! :"
+    puts ""
+    puts ""
+    if Info.print_info.include(input)
+      return Info.print_info
+    end
 
-  def get_artist_info
-
+    puts ""
+    puts ""
+    puts "Would you like to learn more about someone else?"
+    more_input = gets.strip.downcase
+    if more_input == "y"
+      get_artist_name
+    else
+      system("clear")
+      puts "Ok, thanks for stopping by!" 
   end
 
 
@@ -103,7 +96,7 @@ class ZMFeatures::CLI
     greet
     get_name
     begin_to_scrape
-    Feature.print_all_features
+    Artist.print_all_features
     prompt_to_learn_more
   end
 end

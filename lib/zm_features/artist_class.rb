@@ -6,17 +6,17 @@ require 'nokogiri'
 
 #This class will provide instructions for creating new instances of a feature, save it, and display the list of features in the terminal
 
-class Feature
-  attr_accessor :name, :country_of_origin, :info_link
+class Artist
+  attr_accessor :name, :country_of_origin, :info
   # attr_reader :art_piece
 
   @@all = []
 
-  def initialize(name, country_of_origin, info_link=nil)
+  def initialize(name, country_of_origin, info=nil)
     @name = name
     @country_of_origin = country_of_origin
     # @art_piece
-    @info_link = info_link
+    @info = info
     @@all << self
   end
 
@@ -34,6 +34,27 @@ class Feature
       puts "From " + artist.country_of_origin
       puts "-------------------------------------------"
     end
+  end
+
+  def add_feature_by_name(name)
+    feature = Feature.new(name)
+    add_feature
+  end
+
+  def add_feature(feature)
+    feature.artist = self
+  end
+
+  def add_info(info)
+    info.artist = self
+  end
+
+  def blurbs
+    Info.all.select { |info| info.artist == self }
+  end
+
+  def features
+    Feature.all.select { |feature| feature.artist == self }
   end
 
 end

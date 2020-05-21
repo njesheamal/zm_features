@@ -8,31 +8,39 @@
 #
 # #This class will provide instructions for creating new instances of a feature, save it, and display the list of features in the terminal
 #
-# class Info
-#   attr_accessor :artist, :blurb, :source
-#   # attr_reader :art_piece
-#
-#   @@all = []
-#
-#   def initialize(artist, blurb, info_source=nil)
-#     @artist= artist
-#     @blurb = blurb
-#     # @art_piece
-#     @info_source = info_source
-#     @@all << self
-#   end
-#
-#   def self.all
-#     @@all
-#   end
-#
-#   def self.print_info
-#     puts ""
-#     puts ""
-#     self.all.each do |info|
-#       puts info.artist
-#       puts info.blurb
-#     end
-#   end
-#
-# end
+class Info
+  attr_accessor :artist, :blurb, :source
+  # attr_reader :art_piece
+
+  @@all = []
+
+  def initialize(artist=nil, blurb, info_source=nil)
+    @artist= artist
+    @blurb = blurb
+    # @art_piece
+    @info_source = "From zeitzmocaa.museum."
+    @@all << self
+  end
+
+  def self.all
+    @@all
+  end
+
+  def artist_name
+    self.artist.name
+  end
+
+  def self.print_info
+    puts ""
+    puts ""
+    self.all.each do |info|
+      puts info.artist
+      puts ""
+      puts info.blurb
+      puts ""
+      puts ""
+      puts info.info_source
+    end
+  end
+
+end

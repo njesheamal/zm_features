@@ -16,7 +16,7 @@ class ZMFeaturesScraper
       # artist = Artist.create(name)
       # is it sufficient to say that the name belongs to the artist?
       country_of_origin = artist.css('p').text
-      Feature.new(name, country_of_origin)
+      Artist.new(name, country_of_origin)
       #if an artist class and exhibitions class is added, new_features = Features.new(name, country_of_origin, exhibitions)
     end
   end
@@ -30,8 +30,8 @@ class ZMFeaturesScraper
     artist_url = results.css("a").map { |link| link["href"]}
 
     artist_url.uniq.each do |info|
-      trivia_blurb = info.css('h1.border-strip p').text
-      Info.new(artist, blurb, info_source)
+      blurb = info.css('h1.border-strip p').text
+      Info.new(blurb)
     end
   end
 
