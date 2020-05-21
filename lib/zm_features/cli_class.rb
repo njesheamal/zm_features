@@ -88,6 +88,7 @@ class ZMFeatures::CLI
     else
       system("clear")
       puts "Ok, thanks for stopping by!" 
+    end
   end
 
 
