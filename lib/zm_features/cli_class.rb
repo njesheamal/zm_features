@@ -77,5 +77,6 @@ class ZMFeatures::CLI
     begin_to_scrape
     Artist.print_all_features
     prompt_to_learn_more
+    Info.print_info
   end
 end

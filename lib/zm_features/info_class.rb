@@ -3,7 +3,7 @@
 # #an artist has many features and has a lots of info
 # #responsible for keeping track of all artists
 # #establish relationships using the second level scrape
-# require 'nokogiri'
+require 'nokogiri'
 # # require 'open-uri'  - might or might not need this here
 #
 # #This class will provide instructions for creating new instances of a feature, save it, and display the list of features in the terminal
@@ -18,7 +18,7 @@ class Info
     @artist= artist
     @blurb = blurb
     # @art_piece
-    @source = "From zeitzmocaa.museum."
+    @source = print_source
     @@all << self
   end
 
@@ -36,13 +36,15 @@ class Info
 
 
   def self.print_info
+    puts ""
+    puts ""
     self.all.each do |info|
       puts info.artist
       puts ""
       puts info.blurb
       puts ""
       puts ""
-      puts info.info_source
+      puts info.source
     end
   end
 

@@ -54,12 +54,22 @@ class ZMFeaturesScraper
     
     new_doc = Nokogiri::HTML(new_html)
 
-    new_results = new_doc.css('div.col-1-1 blockquote').text
+    new_results = new_doc.css('div.col-1-1 blockquote')
 
-    one = new_results.gsub(/[\n]/, '')
-    two = one.gsub(/[\u2019]/, "'")
-    three = two.gsub(/[\u2013]/, "-")
-    four = three.gsub(/[\u00A0]/, " ")
+    new_results.each do |quote|
+      blurb = quote.text
+
+      Info.new(blurb)
+    end
+
+
+
+
+    # one = new_results.gsub(/[\n]/, '')
+    # two = one.gsub(/[\u2019]/, "'")
+    # binding.pry
+    # three = two.gsub(/[\u2013]/, "-")
+    # four = three.gsub(/[\u00A0]/, " ")
   
     #testing
     # new_results.each do |blurb|
