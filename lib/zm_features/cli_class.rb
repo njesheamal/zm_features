@@ -54,7 +54,11 @@ class ZMFeatures::CLI
       puts ""
       puts ""
       puts "Great!"
-      get_artist_name
+      system("clear")
+      ZMFeaturesScraper.scrape_a_feature
+      puts ""
+      puts ""
+      puts ""
     elsif input == "n"
       puts ""
       puts "Ok, thanks for stopping by!"
@@ -65,32 +69,6 @@ class ZMFeatures::CLI
       prompt_to_learn_more
     end
   end
-
-  def get_artist_name
-    puts "Who would you like to learn more about?"
-
-    input = gets.strip.downcase
-    puts "Ok, #{input.upcase} is a great choice!".each_char {|c| putc c ; sleep 0.07; $stdout.flush }
-    
-    puts "Here is some trivia info about 'em! :"
-    puts ""
-    puts ""
-    if Info.print_info.include(input)
-      return Info.print_info
-    end
-
-    puts ""
-    puts ""
-    puts "Would you like to learn more about someone else?"
-    more_input = gets.strip.downcase
-    if more_input == "y"
-      get_artist_name
-    else
-      system("clear")
-      puts "Ok, thanks for stopping by!" 
-    end
-  end
-
 
   def run
     system("clear")

@@ -14,11 +14,11 @@ class Info
 
   @@all = []
 
-  def initialize(artist=nil, blurb, info_source=nil)
+  def initialize(blurb)
     @artist= artist
     @blurb = blurb
     # @art_piece
-    @info_source = "From zeitzmocaa.museum."
+    @source = "From zeitzmocaa.museum."
     @@all << self
   end
 
@@ -30,9 +30,12 @@ class Info
     self.artist.name
   end
 
+  def print_source
+    puts "From zeitzmocaa.museum."
+  end
+
+
   def self.print_info
-    puts ""
-    puts ""
     self.all.each do |info|
       puts info.artist
       puts ""

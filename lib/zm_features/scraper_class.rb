@@ -22,17 +22,57 @@ class ZMFeaturesScraper
   end
 
   def self.scrape_a_feature
-    url = "https://zeitzmocaa.museum/art-artists/"
-    html = open(url)
+    site = "https://zeitzmocaa.museum/art-artists/"
+    html = open(site)
     parsed_elements = Nokogiri::HTML(html)
     results = parsed_elements.css("div.col-1-4.artist-block")
     #now, locate where the actual info I need is:
-    artist_url = results.css("a").map { |link| link["href"]}
 
-    artist_url.uniq.each do |info|
-      blurb = info.css('h1.border-strip p').text
-      Info.new(blurb)
+    url = results.css("a").map { |link| link["href"]}
+
+    artist_url = url.uniq
+  
+    menu = artist_url.each.with_index(1) do |link, index|
+    
+      puts "#{index}.: #{link}"
+    
     end
+    
+    
+    puts ""
+    puts "" 
+    puts "pick a number from the menu"
+    
+
+    input = gets.chomp
+    number = input.to_i
+    
+
+    artist_link = menu[number - 1]
+    
+    new_html = open(artist_link)
+    
+    new_doc = Nokogiri::HTML(new_html)
+
+    new_results = new_doc.css('div.col-1-1 blockquote').text
+
+    one = new_results.gsub(/[\n]/, '')
+    two = one.gsub(/[\u2019]/, "'")
+    three = two.gsub(/[\u2013]/, "-")
+    four = three.gsub(/[\u00A0]/, " ")
+  
+    #testing
+    # new_results.each do |blurb|
+    #   one = blurb.gsub(/[\n]/, '')
+    #   two = one.gsub(/[\u2019]/, "'")
+    #   three = two.gsub(/[\u2013]/, "-")
+    #   four = three.gsub(/[\u00A0]/, " ")
+    #   blurb = four
+
+    #   Info.new(blurb)
+    # end
+    
+
   end
 
 end
