@@ -42,7 +42,7 @@ class ZMFeaturesScraper
     
     puts ""
     puts "" 
-    puts "pick a number from the menu"
+    puts "Please, pick a number from the menu."
     
 
     input = gets.chomp

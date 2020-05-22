@@ -54,6 +54,8 @@ class ZMFeatures::CLI
       puts ""
       puts ""
       puts "Great!"
+      puts ""
+      puts " "
       system("clear")
       ZMFeaturesScraper.scrape_a_feature
       puts ""
