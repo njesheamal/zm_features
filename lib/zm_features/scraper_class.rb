@@ -33,9 +33,10 @@ class ZMFeaturesScraper
     artist_url = url.uniq
   
     menu = artist_url.each.with_index(1) do |link, index|
-    
-      puts "#{index}.: #{link}"
-    
+      slim = link.delete_prefix("https://zeitzmocaa.museum/artists/")
+      slimmer = slim.delete_suffix("/")
+      slimmest = slimmer.gsub(/[-]/, ' ')
+      puts "#{index}.: #{slimmest}"
     end
     
     
@@ -62,26 +63,6 @@ class ZMFeaturesScraper
       Info.new(blurb)
     end
 
-
-
-
-    # one = new_results.gsub(/[\n]/, '')
-    # two = one.gsub(/[\u2019]/, "'")
-    # binding.pry
-    # three = two.gsub(/[\u2013]/, "-")
-    # four = three.gsub(/[\u00A0]/, " ")
-  
-    #testing
-    # new_results.each do |blurb|
-    #   one = blurb.gsub(/[\n]/, '')
-    #   two = one.gsub(/[\u2019]/, "'")
-    #   three = two.gsub(/[\u2013]/, "-")
-    #   four = three.gsub(/[\u00A0]/, " ")
-    #   blurb = four
-
-    #   Info.new(blurb)
-    # end
-    
 
   end
 

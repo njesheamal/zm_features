@@ -18,7 +18,6 @@ class Info
     @artist= artist
     @blurb = blurb
     # @art_piece
-    @source = print_source
     @@all << self
   end
 
@@ -31,7 +30,7 @@ class Info
   end
 
   def print_source
-    puts "From zeitzmocaa.museum."
+    puts "From zeitzmocaa.museum"
   end
 
 
