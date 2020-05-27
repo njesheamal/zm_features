@@ -40,13 +40,13 @@ class ZMFeaturesScraper
     end
     
     
-    puts ""
-    puts "" 
-    puts "Please, pick a number from the menu."
+    # puts ""
+    # puts "" 
+    # puts "Please, pick a number from the menu."
     
 
-    input = gets.chomp
-    number = input.to_i
+    # input = gets.chomp
+    # number = input.to_i
     
 
     artist_link = menu[number - 1]

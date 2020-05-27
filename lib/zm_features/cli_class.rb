@@ -49,27 +49,32 @@ class ZMFeatures::CLI
     puts "Would you like to learn more about a specific artist being featured? Enter Y or N"
     #I would need to get input from the user
     input = gets.strip.downcase
-    if input == "y"
-      puts ""
-      puts ""
-      puts ""
-      puts "Great!"
-      puts ""
-      puts " "
-      system("clear")
-      ZMFeaturesScraper.scrape_a_feature
-      puts ""
-      puts ""
-      puts ""
-    elsif input == "n"
-      puts ""
-      puts "Ok, thanks for stopping by!"
-    else
-      puts ""
-      puts "Sorry, I don't understand the answer."
-      puts "Please try again"
-      prompt_to_learn_more
+
+    while input == "y"
+      if input == "y"
+        puts ""
+        puts ""
+        puts ""
+        puts "Great!"
+        puts ""
+        puts " "
+        system("clear")
+        ZMFeaturesScraper.scrape_a_feature
+        puts ""
+        puts ""
+        puts ""
+      elsif input == "n"
+        puts ""
+        puts "Ok, thanks for stopping by!"
+      else
+        puts ""
+        puts "Sorry, I don't understand the answer."
+        puts "Please try again"
+        prompt_to_learn_more
+      end
     end
+
+
   end
 
   def run
@@ -80,5 +85,25 @@ class ZMFeatures::CLI
     Artist.print_all_features
     prompt_to_learn_more
     Info.print_info
+    prompt_to_learn_more
+    # Artist.print_all_features
   end
 end
+
+#Start-
+#- greet the user
+#- ask for their name(one)
+#- tell them what the program does
+#- ask for patience as scraping occurs
+#- show them a menu (two)
+#- ask them if they would like to get more information about any artist
+#- if yes..
+#-- show the menu again
+#-- ask them to make a selection(three)
+#-- display the artist info
+#-- ask them if they would like more info about the same artist or if they would like to choose another one
+#---- if more of the same artist, show them more details
+#---- if another artist, then (three)
+#- if no...
+#-- thank them for their time, ask them to come back soon
+#* instead of ending, go back to start again and greet the user

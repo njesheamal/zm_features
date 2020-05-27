@@ -12,7 +12,7 @@ class Artist
 
   @@all = []
 
-  def initialize(name, country_of_origin, info=nil)
+  def initialize(name=nil, country_of_origin=nil, info=nil)
     @name = name
     @country_of_origin = country_of_origin
     # @art_piece
@@ -36,14 +36,14 @@ class Artist
     end
   end
 
-  def add_feature_by_name(name)
-    feature = Feature.new(name)
-    add_feature
-  end
+  # def add_feature_by_name(name)
+  #   feature = Feature.new(name)
+  #   add_feature
+  # end
 
-  def add_feature(feature)
-    feature.artist = self
-  end
+  # def add_feature(feature)
+  #   feature.artist = self
+  # end
 
   def add_info(info)
     info.artist = self
@@ -53,9 +53,9 @@ class Artist
     Info.all.select { |info| info.artist == self }
   end
 
-  def features
-    Feature.all.select { |feature| feature.artist == self }
-  end
+  # def features
+  #   Feature.all.select { |feature| feature.artist == self }
+  # end
 
 end
 
