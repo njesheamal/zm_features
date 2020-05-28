@@ -57,7 +57,7 @@ class ZMFeatures::CLI
         puts ""
         puts "Great!"
         puts ""
-        puts " "
+        puts ""
         system("clear")
         ZMFeaturesScraper.scrape_a_feature
         puts ""
@@ -82,6 +82,7 @@ class ZMFeatures::CLI
     greet
     get_name
     begin_to_scrape
+    
     Artist.print_all_features
     prompt_to_learn_more
     Info.print_info

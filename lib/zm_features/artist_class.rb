@@ -7,7 +7,7 @@ require 'nokogiri'
 #This class will provide instructions for creating new instances of a feature, save it, and display the list of features in the terminal
 
 class Artist
-  attr_accessor :name, :country_of_origin, :info
+  attr_accessor :name, :country_of_origin, :info, :url
   # attr_reader :art_piece
 
   @@all = []
@@ -25,17 +25,22 @@ class Artist
   end
 
   def self.print_all_features
-    puts ""
-    puts ""
-    puts "      Now Featured at the Zeitz MOCAA:      "
-    self.all.each do |artist|
-      puts "-------------------------------------------"
-      puts artist.name
-      puts "From " + artist.country_of_origin
-      puts "-------------------------------------------"
+    artist_url = ZMFeaturesScraper.scrape_a_feature
+    menu = artist_url.each.with_index(1) do |link, index|
+      slim = link.delete_prefix("https://zeitzmocaa.museum/artists/")
+      slimmer = slim.delete_suffix("/")
+      slimmest = slimmer.gsub(/[-]/, ' ')
+      puts "#{index}.: #{slimmest}"
     end
   end
 
+  def url
+    url = results.css("a").map { |link| link["href"]}
+
+    url.uniq
+  end
+
+  def 
   # def add_feature_by_name(name)
   #   feature = Feature.new(name)
   #   add_feature
