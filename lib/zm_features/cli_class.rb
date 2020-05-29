@@ -50,22 +50,29 @@ class ZMFeatures::CLI
     #I would need to get input from the user
     input = gets.strip.downcase
 
-    while input == "y"
-      if input == "y"
-        puts ""
+    while input != "exit"
+      Artist.print_all_features
+      Artist.print_info
+
+      if input == "y" || "Y" || "Yes" || "yes" || "YES"
         puts ""
         puts ""
         puts "Great!"
         puts ""
         puts ""
         system("clear")
-        ZMFeaturesScraper.scrape_a_feature
         puts ""
         puts ""
+        Info.print_info
         puts ""
-      elsif input == "n"
+        puts ""
+        system("clear")
+        display_more
+      elsif input == "n" || "N" || "No" || "no" || "NO"
         puts ""
         puts "Ok, thanks for stopping by!"
+        system("clear")
+        greet
       else
         puts ""
         puts "Sorry, I don't understand the answer."
@@ -73,8 +80,33 @@ class ZMFeatures::CLI
         prompt_to_learn_more
       end
     end
+  end
 
-
+  def display_more
+    puts ""
+    puts ""
+    puts "Would you like to view more Y or N?"
+    input = gets.strip.downcase
+    if input == "y" || "Y" || "Yes" || "yes" || "YES"
+      puts ""
+      puts ""
+      system("clear")
+      puts ""
+      puts ""
+      prompt_to_learn_more
+      puts ""
+      puts ""
+    elsif input == "n" || "N" || "No" || "no" || "NO"
+      puts ""
+      puts "Ok, thanks for stopping by!"
+      system("clear")
+      greet
+    else
+      puts ""
+      puts "Sorry, I don't understand the answer."
+      puts "Please try again"
+      prompt_to_learn_more
+    end
   end
 
   def run
@@ -82,12 +114,8 @@ class ZMFeatures::CLI
     greet
     get_name
     begin_to_scrape
-    
     Artist.print_all_features
     prompt_to_learn_more
-    Info.print_info
-    prompt_to_learn_more
-    # Artist.print_all_features
   end
 end
 

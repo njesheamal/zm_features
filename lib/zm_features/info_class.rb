@@ -4,7 +4,7 @@
 # #responsible for keeping track of all artists
 # #establish relationships using the second level scrape
 require 'nokogiri'
-# # require 'open-uri'  - might or might not need this here
+require 'open-uri' 
 #
 # #This class will provide instructions for creating new instances of a feature, save it, and display the list of features in the terminal
 #
@@ -14,10 +14,9 @@ class Info
 
   @@all = []
 
-  def initialize(blurb)
-    @artist= artist
+  def initialize(artist, blurb)
+    @artist = artist
     @blurb = blurb
-    # @art_piece
     @@all << self
   end
 
@@ -25,11 +24,11 @@ class Info
     @@all
   end
 
-  def artist_name
+  def self.artist
     self.artist.name
   end
 
-  def print_source
+  def self.print_source
     puts "From zeitzmocaa.museum"
   end
 
@@ -43,7 +42,7 @@ class Info
       puts info.blurb
       puts ""
       puts ""
-      puts info.source
+      puts "#{print_source}"
     end
   end
 
