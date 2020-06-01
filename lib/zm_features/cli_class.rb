@@ -109,6 +109,14 @@ class ZMFeatures::CLI
     end
   end
 
+  # def say_hello(name)
+  #   if name != "femi kuti"
+  #     puts "goodbye"
+  #   else
+  #     puts "hello"
+  #   end
+  # end
+
   def run
     system("clear")
     greet

@@ -11,44 +11,6 @@ class ZMFeaturesScraper
       Artist.new(name, country_of_origin)
     end
   end
- 
-  # def self.scrape_a_feature
-  #   #now, locate where the actual info I need is:
-
-  #   # url = results.css("a").map { |link| link["href"]}
-
-  #   # url.uniq
-  
-  #   # menu = artist_url.each.with_index(1) do |link, index|
-  #   #   slim = link.delete_prefix("https://zeitzmocaa.museum/artists/")
-  #   #   slimmer = slim.delete_suffix("/")
-  #   #   slimmest = slimmer.gsub(/[-]/, ' ')
-  #   #   puts "#{index}.: #{slimmest}"
-  #   # end
-    
-    
-  #   # puts ""
-  #   # puts "" 
-  #   # puts "Please, pick a number from the menu."
-    
-
-  #   # input = gets.chomp
-  #   # number = input.to_i
-    
-
-  #   # artist_link = menu[number - 1]
-    
-  #   # new_html = open(artist_link)
-    
-  #   # new_doc = Nokogiri::HTML(new_html)
-
-  #   # new_results = new_doc.css('div.col-1-1 blockquote')
-
-  #   # new_results.each do |quote|
-  #   #   blurb = quote.text
-
-  #   #   Info.new(blurb)
-  #   # end
 
   
   def self.scrape_a_feature

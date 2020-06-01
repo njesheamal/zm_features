@@ -22,6 +22,13 @@ class Artist
     @@all
   end
 
+
+  # def self.return_country_of_origin
+  #   @@all.map do |artist|
+  #     artist.country_of_origin
+  #   end
+  # end
+
   # def self.menu
   #   list = ZMFeaturesScraper.scrape_a_feature.each.with_index(1).map do |link, index|
   #     slim = link.delete_prefix("https://zeitzmocaa.museum/artists/")
